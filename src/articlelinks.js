@@ -11,7 +11,7 @@ class ArticleLinks extends Component {
     }
 
     handleClick(e) {
-        if(this.state.classes != 'comments') {
+        if(this.state.classes !== 'comments') {
             this.setState({classes: 'comments'});
         }
         else {

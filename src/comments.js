@@ -23,7 +23,7 @@ class Comments extends Component {
 
     handleSubmit(ev) {
         ev.preventDefault();
-        if(this.commentInput.value != '') {
+        if(this.commentInput.value !== '') {
             const comments = [...this.state.comments]
             comments.unshift(this.commentInput.value)
             this.setState({ comments })
