@@ -6,17 +6,15 @@ class Comments extends Component {
         super()
         this.state = {
             comments: [],
+        }  
+    }
+
+    componentDidMount() {
+        //load
+        const comments = JSON.parse(localStorage.getItem('comments'));
+        if(comments != null) {
+            this.setState({ comments });
         }
-        this.load();
-    }
-
-    load() {
-        this.setState({ comments: JSON.parse(localStorage.getItem('comments')) })
-    }
-
-    save() {
-        console.log('saved!');
-        localStorage.setItem('comments', JSON.stringify(this.state.comments))
     }
 
     renderComment(comment, i) {
@@ -25,19 +23,26 @@ class Comments extends Component {
 
     handleSubmit(ev) {
         ev.preventDefault();
-        const comments = [...this.state.comments]
-        comments.unshift(this.commentInput.value)
-        this.setState({ comments })
-        this.save()
+        if(this.commentInput.value != '') {
+            const comments = [...this.state.comments]
+            comments.unshift(this.commentInput.value)
+            this.setState({ comments })
+            console.log(comments);
+            //save
+            localStorage.setItem('comments', JSON.stringify(comments))
+            document.querySelector('.comment-box').focus();
+            ev.currentTarget.reset();
+        }
     }
     
     render() {
         return (
-            <div>
+            <div className="comments">
                 <form onSubmit={this.handleSubmit.bind(this)}>
                     <textarea 
                     name="commentBox" 
                     placeholder="Leave your comment here!"
+                    className="comment-box"
                     ref={input => this.commentInput = input} 
                     ></textarea>
                     <button className="expanded button" type="submit">Post your comment</button>

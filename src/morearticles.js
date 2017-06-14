@@ -17,7 +17,7 @@ class MoreArticles extends Component {
         return (
         <div className="small-12 columns other-articles">
             <h2>From around the Realm</h2>
-            {this.state.info.map(info => <ArticlePreview desc={info.desc} img={info.img} alt={info.alt}/>)}
+            {this.state.info.map((info, i) => <ArticlePreview key={i} desc={info.desc} img={info.img} alt={info.alt}/>)}
         </div>
         );
     }

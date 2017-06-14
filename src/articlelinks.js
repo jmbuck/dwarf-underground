@@ -11,14 +11,11 @@ class ArticleLinks extends Component {
     }
 
     handleClick(e) {
-        console.log('clicked!')
         if(this.state.classes != 'comments') {
             this.setState({classes: 'comments'});
-            console.log('test')
         }
         else {
             this.setState({classes: 'comments hide'});
-            console.log('test2')
         }
     }
 
