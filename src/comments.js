@@ -29,7 +29,9 @@ class Comments extends Component {
     handleSubmit(ev) {
         ev.preventDefault();
         if(this.commentInput.value !== '') {
-            const date = (new Date()).toString();
+            const dateObj = (new Date())
+            dateObj.setFullYear(dateObj.getFullYear() + 1001);
+            const date = dateObj.toString();
             const timestamp = date.replace(date.substr(date.indexOf(':')+3), '');
             const comments = [...this.state.comments]
             comments.unshift({comment: this.commentInput.value, timestamp});
