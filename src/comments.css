@@ -6,7 +6,6 @@
 .comments .button {
     background-color:#B69C22;
     margin-bottom: 1rem;
-    margin-top: 0;
 }
 
 .comments .button:hover {
@@ -21,4 +20,3 @@
     padding: 0.5em;
     background-color: rgba(207,181,59,.1);
 }
-

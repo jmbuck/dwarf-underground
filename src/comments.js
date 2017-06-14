@@ -26,10 +26,8 @@ class Comments extends Component {
         if(this.commentInput.value !== '') {
             const comments = [...this.state.comments]
             comments.unshift(this.commentInput.value)
-            this.setState({ comments })
-            console.log(comments);
-            //save
-            localStorage.setItem('comments', JSON.stringify(comments))
+            //update state and save to localStorage
+            this.setState({ comments }, () => localStorage.setItem('comments', JSON.stringify(this.state.comments)))    
             document.querySelector('.comment-box').focus();
             ev.currentTarget.reset();
         }

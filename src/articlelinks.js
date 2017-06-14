@@ -11,6 +11,7 @@ class ArticleLinks extends Component {
     }
 
     handleClick(e) {
+        e.preventDefault();
         if(this.state.classes !== 'comments') {
             this.setState({classes: 'comments'});
         }
@@ -23,7 +24,7 @@ class ArticleLinks extends Component {
         return (
             <div>
                 <div className="article-links">
-                    <a onClick={this.handleClick.bind(this)} className="article-link">
+                    <a onClick={this.handleClick.bind(this)} href='#' className="article-link">
                         <i className="fa fa-comments-o"></i>
                         <span className="article-link-text">Comments</span>
                     </a>
